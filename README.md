@@ -52,48 +52,58 @@
 
 ## About
 
-> **[?]**
-> Provide general information about your project here.
-> What problem does it (intend to) solve?
-> What is the purpose of your project?
-> Why did you undertake it?
-> You don't have to answer all the questions -- just the ones relevant to your project.
+> This is a continuation of the data analysis project using L.A. city's data 'Great Streets Pedestrian Survey 2015'.  
+> The data shown is already data wrangled and cleaned which is described on my other repo.
+> This project is to demonstrate how to use SQL data with python.
+
 
 <details>
 <summary>Screenshots</summary>
 <br>
 
-> **[?]**
-> Please provide your screenshots here.
 
-|                               Home Page                               |                               Login Page                               |
+|                               GEOMETRIC_CENTER                               |                               APPROXIMATE                              |
 | :-------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img src="docs/images/screenshot.png" title="Home Page" width="100%"> | <img src="docs/images/screenshot.png" title="Login Page" width="100%"> |
+| <img src="docs/images/geometric_center.png" title="Home Page" width="100%"> | <img src="docs/images/approx.png" title="Login Page" width="100%"> |
 
 </details>
 
 ### Built With
 
-> **[?]**
-> Please provide the technologies that are used in the project.
+*  requests module
+*  json module for google maps api
+*  urllib
 
 ## Getting Started
 
 ### Prerequisites
 
-> **[?]**
-> What are the project requirements/dependencies?
+* pip install request
+* pip install json
+* pip install urllib
+* pip install folium
 
 ### Installation
 
-> **[?]**
-> Describe how to install and get started with the project.
-
+* get google maps API key before starting
 ## Usage
 
-> **[?]**
-> How does one go about using it?
-> Provide various use cases and code examples here.
+
+```python
+base_url= "https://maps.googleapis.com/maps/api/geocode/json?"
+AUTH_KEY = ""
+
+# set up your search parameters - address and API key
+parameters = {"address": "Venice Blvd. and Moore st, Los Angeles",
+              "key": AUTH_KEY}
+```
+```python
+import folium
+from folium.plugins import MarkerCluster
+
+m = folium.Map(location=[34.0453119,-118.3083065], zoom_start=12)
+marker_cluster = MarkerCluster().add_to(m)
+```
 
 ## Roadmap
 
@@ -105,8 +115,7 @@ See the [open issues](https://github.com/ykimdeveloper/maps-great-streets-survey
 
 ## Support
 
-> **[?]**
-> Provide additional ways to contact the project maintainer/maintainers.
+ykimdeveloper - message me for any questions
 
 Reach out to the maintainer at one of the following places:
 
@@ -148,9 +157,3 @@ _For more information and to report security issues, please refer to our [securi
 This project is licensed under the **MIT license**.
 
 See [LICENSE](LICENSE) for more information.
-
-## Acknowledgements
-
-> **[?]**
-> If your work was funded by any organization or institution, acknowledge their support here.
-> In addition, if your work relies on other software libraries, or was inspired by looking at other work, it is appropriate to acknowledge this intellectual debt too.
